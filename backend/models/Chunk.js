@@ -10,6 +10,8 @@ const chunkSchema = new mongoose.Schema({
         type:String,
         required:[true, "file content is required"]
     }
+    ,
+       chunkIndex: Number
 })
 
 

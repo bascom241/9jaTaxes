@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import Chunk from "../models/Chunk.js"; // you can rename this model later
+import Chunk from "../models/Chunk.js";
 
 dotenv.config();
 
@@ -16,6 +16,20 @@ const mongoUrl = process.env.mongo_url || "mongodb://localhost:27017/9jaTaxes";
 await mongoose.connect(mongoUrl);
 console.log("MongoDB connected");
 
+// 🔹 Chunk helper
+function chunkText(text, chunkSize = 2000) {
+    const chunks = [];
+    let start = 0;
+
+    while (start < text.length) {
+        chunks.push(text.slice(start, start + chunkSize));
+        start += chunkSize;
+    }
+
+    return chunks;
+    
+}
+
 async function saveFile(filePath) {
     if (!fs.existsSync(filePath)) {
         console.error(`File not found: ${filePath}`);
@@ -25,15 +39,20 @@ async function saveFile(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
     const fileName = path.basename(filePath);
 
-    // Remove old version if it exists
+    // 🔴 Remove old chunks for this file
     await Chunk.deleteMany({ fileName });
 
-    await Chunk.create({
-        fileName,
-        content
-    });
+    const chunks = chunkText(content);
 
-    console.log(`${fileName} saved successfully`);
+    const docs = chunks.map((chunk, index) => ({
+        fileName,
+        content: chunk,
+        chunkIndex: index
+    }));
+
+    await Chunk.insertMany(docs);
+
+    console.log(`${fileName} saved in ${chunks.length} chunks`);
 }
 
 async function run() {
@@ -42,7 +61,7 @@ async function run() {
     await saveFile(path.join(basePath, "tax1.txt"));
     await saveFile(path.join(basePath, "tax2.txt"));
 
-    console.log("All files saved");
+    console.log("All files chunked & saved");
     await mongoose.disconnect();
     process.exit(0);
 }

@@ -1,12 +1,25 @@
 import BotMessage from "./ui/BotMessage";
 import UserMessage from "./ui/UserMessage";
+import { useSocket } from "../../../hooks/useSocket";
+import { useEffect, useRef } from "react";
+import type { Message } from "../../context/SocketContext";
 
 const ChatBody = () => {
+    const { messages, isTyping } = useSocket();
+   
+
     return (
-        <div className="flex-1 w-full p-6 space-y-4 overflow-y-auto">
-            <BotMessage message="Hi 👋 I’m TaxBot. How can I help you today?" />
-            <UserMessage message="Explain VAT in Nigeria" />
-            <BotMessage message="VAT in Nigeria is currently 7.5% applied to goods and services." />
+        <div className="flex flex-col p-4 space-y-4 min-h-0">
+            {messages.map((msg: Message, index: number) =>
+                msg.sender === "bot" ? (
+                    <BotMessage key={index} message={msg.text} />
+                ) : (
+                    <UserMessage key={index} message={msg.text} />
+                )
+            )}
+
+            {isTyping && <BotMessage message="Typing..." />}
+            
         </div>
     );
 };

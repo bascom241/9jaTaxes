@@ -1,11 +1,15 @@
 import express from "express"
-import app from "./app.js";
+
+import http from "http";
 import dotenv from "dotenv"
 import { connectDb } from "./utils/connectDb.js";
 import userRouter from "./routes/userRouter.js"
 import articleRouter from "./routes/articleRouter.js"
 import categoryRouter from "./routes/articleCategoryRouter.js"
 import cors from "cors"
+import app from "./app.js"
+import { setupSocket } from "./lib/socket.js";
+import chatRouter from "./routes/chat.js"
 dotenv.config();
 app.use(express.json());
 
@@ -23,11 +27,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", userRouter)
 app.use("/api/article", articleRouter)
 app.use("/api/category", categoryRouter)
+app.use("/api/chat", chatRouter)
 
+const server = http.createServer(app);
 
+setupSocket(server);
 
 const port = process.env.PORT || 3000
 connectDb();
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Listening on port ${port}`)
-})
+})  

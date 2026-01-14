@@ -9,7 +9,7 @@ import Article from "./pages/Article";
 import ArticleDetail from "./pages/ArticleDetail";
 import { useEffect } from "react";
 import { useAuthStore } from "../store/authStore";
-
+import Footer from "./components/Footer";
 function App() {
 
   {/* Where to Show Nav Screens  */ }
@@ -42,8 +42,13 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/learn" element={<Article />} />
         <Route path="/article/:articleId" element={<ArticleDetail />} />
+
       </Routes>
 
+
+      {
+        !shouldHideBar && <Footer />
+      }
     </div>
   )
 }

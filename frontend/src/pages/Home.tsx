@@ -1,11 +1,15 @@
-import Chat from "../components/chats/Chat"
+import Chat from "../components/chats/Chat";
+import { SocketProvider } from "../context/SocketContext";
 
 const Home = () => {
   return (
-    <main className="flex w-full h-screen mt-16 py-8 px-14 bg-gray-100  items-center">
-      <Chat />
-    </main>
-  )
-}
+    <SocketProvider>
+      <main className="mt-24 flex flex-col md:flex-row w-full  bg-gray-100">
+        {/* Chat takes full width on mobile, fixed sidebar on desktop */}
+        <Chat />
+      </main>
+    </SocketProvider>
+  );
+};
 
-export default Home
+export default Home;
