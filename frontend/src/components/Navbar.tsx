@@ -32,7 +32,7 @@ const Navbar = () => {
     <nav className="bg-white w-full shadow-md border-b border-gray-200 fixed top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
-        <div className="text-xl font-bold text-green-800">Tax Wise</div>
+        <div className="text-xl font-bold text-green-800">9jaTaxes</div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6">

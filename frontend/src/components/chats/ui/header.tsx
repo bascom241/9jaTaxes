@@ -26,7 +26,7 @@ const Header = () => {
                     {/* Title */}
                     <div className="text-center md:text-left">
                         <h1 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-2">
-                            Chat with <span className="text-emerald-600">TaxBot</span>
+                            Chat with <span className="text-emerald-600">9jaBot</span>
                         </h1>
                         <p className="text-lg text-emerald-700/80">
                             Your AI tax assistant for Nigerian regulations

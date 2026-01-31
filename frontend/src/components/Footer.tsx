@@ -4,10 +4,7 @@ import {
   FileText, 
   HelpCircle, 
   Globe, 
-  Users,
-  Award,
   TrendingUp,
-  Lock,
   Mail,
   Phone,
   MapPin,
@@ -78,38 +75,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Middle Section: Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 border-t border-b border-gray-700">
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                            <Award className="w-6 h-6 text-emerald-400" />
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold mb-2">Certified Accurate</h4>
-                            <p className="text-gray-400">Verified by Nigerian tax authorities</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                            <Lock className="w-6 h-6 text-emerald-400" />
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold mb-2">Bank-Level Security</h4>
-                            <p className="text-gray-400">256-bit encryption for all your data</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                            <Users className="w-6 h-6 text-emerald-400" />
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold mb-2">10,000+ Users</h4>
-                            <p className="text-gray-400">Trusted by businesses nationwide</p>
-                        </div>
-                    </div>
-                </div>
+       
 
                 {/* Bottom Section: Social and Legal */}
                 <div className="pt-10">
