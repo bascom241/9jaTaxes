@@ -3,11 +3,12 @@ import axios from "axios";
 
 const deployedBaseURL = "https://9ja-taxes.vercel.app/api"
 const localBaseURL = "http://localhost:5000/api"
-
+const renderBaseUrl = "https://ninejataxes.onrender.com/api"
 
 console.log(localBaseURL)
+console.log(deployedBaseURL)
 const axiosInstance = axios.create({
-  baseURL: deployedBaseURL,
+  baseURL: renderBaseUrl,
   withCredentials: true
 });
 

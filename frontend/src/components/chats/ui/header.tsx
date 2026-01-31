@@ -3,13 +3,13 @@ import { Shield, Zap, Clock } from "lucide-react";
 
 const Header = () => {
     return (
-        <header className="px-6 py-6 border-b border-emerald-100 bg-gradient-to-r from-emerald-50/40 to-white">
+        <header className="px-6 py-6 border-b border-emerald-100 bg-linear-to-r from-emerald-50/40 to-white">
             <div className="max-w-4xl mx-auto">
                 {/* Main Title Row */}
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mb-4">
                     {/* Bot Image - Larger and prominent */}
                     <div className="relative">
-                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-100 to-white border border-emerald-200 rounded-2xl p-3 shadow-sm">
+                        <div className="w-20 h-20 bg-linear-to-br from-emerald-100 to-white border border-emerald-200 rounded-2xl p-3 shadow-sm">
                             <img
                                 src={bot}
                                 className="w-full h-full object-contain"
