@@ -1,88 +1,44 @@
 import { create } from "zustand";
 import axiosInstance from "../src/lib/axios";
 import toast from "react-hot-toast";
-
-interface AuthInterface {
-  isLogin: boolean;
-  isRegister: boolean;
-  login: (formData: userLoginFormData) => Promise<void>;
-  register: (formData: userRegisterFormData) => Promise<void>;
-  loginError: string | null;
-  user: User | null;
-  getUser: () => Promise<User>;
+interface LoginData {
+  email: string;
+  password: string;
 }
 
-type userLoginFormData = {
+interface User {
+  firstName: string;
+  lastName: string;
   email: string;
-  password: string;
-};
+}
 
-type userRegisterFormData = {
-  name: string;
-  email: string;
-  password: string;
-  role?: string;
-};
-
-type User = {
-  name: string;
-  email: string;
-  role?: string;
-  _id: string;
-};
+interface AuthStore {
+  gettingUser: boolean;
+  login: (formData: LoginData) => Promise<void>;
+}
 
 const authKey = "authToken";
-const refreshToken = "refreshToken";
-console.log(refreshToken);
-
-export const useAuthStore = create<AuthInterface>((set) => ({
-  isLogin: false,
-  isRegister: false,
-  loginError: null,
-  user: null,
-
+const useAuthStore = create<AuthStore>((set) => ({
+  gettingUser: false,
   login: async (formData) => {
-    set({ isLogin: true });
     try {
       const response = await axiosInstance.post("/login", formData);
-      console.log(response); // to be removed
-      const { token } = response.data.data.token;
-      localStorage.setItem(authKey, token);
-      window.location.href = "/";
-      toast.success("login successful");
-      set({ isLogin: false });
+      console.log(response.data.data);
+      const userRole = response?.data.data.role;
+      localStorage.setItem(authKey, response?.data.data.token);
+      if (userRole === "admin") {
+        toast.success("Login succesfully");
+        window.location.href = "/dashboard";
+        localStorage.setItem(authKey, response?.data.data.token);
+      } else {
+        window.location.href="/login"
+        toast.error("Acess Denied")
+      }
     } catch (error) {
       toast.error("Failed to login");
-      console.log(error);
-      set({ isLogin: false });
     }
   },
-
-  register: async (formData) => {
-    set({ isRegister: true });
-    try {
-      const response = await axiosInstance.post("/register", formData);
-      toast.success("registeration successful");
-      window.location.href = "/login";
-      console.log(response);
-      set({ isRegister: false }); // to be removed
-    } catch (error) {
-      toast.error("Registeration Failed");
-      set({ isRegister: false });
-      console.log(error);
-    }
-  },
-
-  getUser: async () => {
-    console.log("fetching ......");
-    try {
-      const response = await axiosInstance.get("/user");
-      console.log(response);
-      set({ user: response.data.user });
-      return response.data.user;
-    } catch (error) {
-      toast.error("Failed to get user");
-      console.log(error);
-    }
-  },
+  
 }));
+
+export default useAuthStore;
