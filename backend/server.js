@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174","https://9ja-taxes-9c4e.vercel.app","https://9ja-taxes-9c4e.vercel.app/", "https://www.9jataxes.com/"],
+    origin: ["http://localhost:5173", "http://localhost:5174","https://9ja-taxes-9c4e.vercel.app","https://9ja-taxes-9c4e.vercel.app/", "https://www.9jataxes.com", "https://www.9jataxes.com/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })
