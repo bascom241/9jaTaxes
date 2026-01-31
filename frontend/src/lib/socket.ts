@@ -1,7 +1,7 @@
 import { Socket, io } from "socket.io-client";
 
-const deployedBaseURL = "https://ninejataxes.onrender.com/api"
-const localBaseURL = "http://localhost:5000/api"
+const deployedBaseURL = "https://ninejataxes.onrender.com"
+const localBaseURL = "http://localhost:5000"
 console.log(localBaseURL)
 const baseURL = deployedBaseURL
 
@@ -11,7 +11,8 @@ export const initSocket = ():Socket  => {
     if (!socket) {
         socket = io(baseURL, {
             withCredentials: true,
-            autoConnect: false
+            autoConnect: false,
+             transports: ["websocket"]
         })
     }
 
