@@ -48,20 +48,24 @@ export const useAuthStore = create<AuthInterface>((set) => ({
             localStorage.setItem(authKey, token);
             window.location.href = "/"
             toast.success("login successful")
+            set({isLogin: false })
         } catch (error) {
             toast.error("Failed to login")
             console.log(error)
+            set({isLogin: false })
         }
     },
     register: async (formData) => {
-        set({ isLogin: true })
+        set({ isRegister: true })
         try {
             const response = await axiosInstance.post("/register", formData);
             toast.success("registeration successful")
             window.location.href = "/login"
-            console.log(response) // to be removed
+            console.log(response) 
+            set({isRegister: false })// to be removed
         } catch (error) {
             toast.error("Registeration Failed")
+            set({isRegister: false })
             console.log(error)
         }
     },

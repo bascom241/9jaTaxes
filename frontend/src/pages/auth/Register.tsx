@@ -1,23 +1,19 @@
 import { useState } from "react";
-import { useAuthStore } from "../../../store/authStore"
-const Register = () => {
+import { useAuthStore } from "../../../store/authStore";
 
-  const { register } = useAuthStore()
+const Register = () => {
+  const { register, isRegister } = useAuthStore();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: ""
-  })
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => {
-      return {
-        ...prev, [name]: value
-      }
-    })
-  }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,56 +28,54 @@ const Register = () => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700">Full Name</label>
-            <input
-              type="text"
-              placeholder="Enter your full name"
-              value={formData.name}
-              name="name"
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-green-800"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              name="email"
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-green-800"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700">Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={formData.password}
-              name="password"
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-green-800"
-              required
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="Full Name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-800"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-800"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-800"
+            required
+          />
 
           <button
             type="submit"
-            className="w-full bg-green-800 text-white py-2 rounded-md hover:bg-green-700 transition"
+            disabled={isRegister}
+            className={`w-full bg-green-800 text-white py-2 rounded-md font-semibold transition flex items-center justify-center ${
+              isRegister ? "opacity-70 cursor-not-allowed" : "hover:bg-green-700"
+            }`}
           >
-            Register
+            {isRegister ? (
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+            ) : null}
+            {isRegister ? "Registering..." : "Register"}
           </button>
         </form>
 
         <p className="mt-4 text-center text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-green-800 font-medium hover:underline">
+          <a
+            href="/login"
+            className="text-green-800 font-medium hover:underline"
+          >
             Login
           </a>
         </p>
