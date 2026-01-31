@@ -31,9 +31,9 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [chatSessionId, setChatSessionId] = useState<string | null>(null);
-  const [manualSession, setManualSession] = useState(false); // tracks manual selection
+  const [manualSession, setManualSession] = useState(false);
 
-  // Initialize socket once
+  // Connect socket only when user exists
   useEffect(() => {
     if (!user) return;
 
@@ -50,7 +50,6 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
         setIsTyping(false);
 
         setChatSessionId((currentSessionId) => {
-          // Only auto-update session if user hasn't selected manually
           return manualSession ? currentSessionId : data.chatSessionId;
         });
 
@@ -68,7 +67,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     };
   }, [user, manualSession]);
 
-  // Fetch last session on mount (only once)
+  // Fetch last chat session on mount
   useEffect(() => {
     if (!user) return;
 
@@ -110,7 +109,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
   const loadSession = async (sessionId: string | null) => {
     if (!user) return;
 
-    setManualSession(true); // mark that user selected manually
+    setManualSession(true);
     setChatSessionId(sessionId);
     setIsTyping(false);
 
@@ -144,11 +143,10 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     setMessages((prev) => [...prev, { sender: "user", text }]);
     setIsTyping(true);
 
-    // Send to server
     socketRef.current.emit("ask_question", {
       question: text,
       userId: user._id,
-      chatSessionId, // null if first message
+      chatSessionId,
     });
   };
 
