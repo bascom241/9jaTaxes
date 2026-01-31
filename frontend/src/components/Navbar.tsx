@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAuthStore } from "../../store/authStore";
 import { Menu, X } from "lucide-react";
+import WaitlistModal from "./WaitlistModal";
 
 const Navbar = () => {
   const { user, getUser } = useAuthStore();
   const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,6 +25,7 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Learn", href: "/learn" },
     { name: "News", href: "/news" },
+
   ];
 
   return (
@@ -42,6 +45,13 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
+
+          <button
+            onClick={() => setWaitlistOpen(true)}
+            className="px-5 py-2 border border-green-800 text-green-800 rounded-full font-semibold hover:bg-green-50"
+          >
+            Join Waitlist
+          </button>
 
           {!loading && !user && (
             <a
@@ -83,6 +93,17 @@ const Navbar = () => {
               </a>
             ))}
 
+            <button
+              onClick={() => {
+                setWaitlistOpen(true);
+                setMobileMenuOpen(false);
+              }}
+              className="px-6 py-2 border border-green-800 text-green-800 rounded-full font-semibold"
+            >
+              Join Waitlist
+            </button>
+
+
             {!loading && !user && (
               <a
                 href="/login"
@@ -95,6 +116,12 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      <WaitlistModal
+        open={waitlistOpen}
+        onClose={() => setWaitlistOpen(false)}
+      />
+
     </nav>
   );
 };

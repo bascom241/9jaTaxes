@@ -24,7 +24,7 @@ const Chat = () => {
       {/* Sidebar Overlay on mobile, normal on desktop */}
       <div
         className={`
-          fixed md:static top-0 left-0 h-full z-20 bg-gradient-to-b from-emerald-50/90 to-white border-r border-emerald-100 shadow-xl transition-transform duration-300
+          fixed md:static top-0 left-0 h-full z-20 bg-linear-to-b from-emerald-50/90 to-white border-r border-emerald-100 shadow-xl transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0 md:w-80 lg:w-96
         `}
