@@ -12,10 +12,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 🔹 MongoDB connection
-const mongoUrl = "mongodb+srv://bascotee:omotosho123@cluster0.y4pidak.mongodb.net/?appName=Cluster0";
+const mongoUrl = process.env.mongo_url ;
 await mongoose.connect(mongoUrl);
 console.log("MongoDB connected");
-
 
 // 🔹 Chunk helper
 function chunkText(text, chunkSize = 2000) {
