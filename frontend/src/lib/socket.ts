@@ -1,6 +1,9 @@
 import { Socket, io } from "socket.io-client";
 
-const baseURL = "http://localhost:5000"
+const deployedBaseURL = "https://9ja-taxes.vercel.app/api"
+const localBaseURL = "http://localhost:5000/api"
+console.log(localBaseURL)
+const baseURL = deployedBaseURL
 
 let socket: Socket | null = null;
 

@@ -1,5 +1,5 @@
 import { Send } from "lucide-react";
-import { use, useState, useEffect } from "react";
+import {  useState, useEffect } from "react";
 import { useSocket } from "../../../hooks/useSocket"
 import { useAuthStore } from "../../../store/authStore";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ const ChatInput = () => {
     const { user, getUser } = useAuthStore()
     const [loading, setLoading] = useState(true);
     
+    console.log(loading)
     useEffect(() => {
         const fetchUser = async () => {
             await getUser();

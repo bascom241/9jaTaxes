@@ -1,7 +1,7 @@
 import BotMessage from "./ui/BotMessage";
 import UserMessage from "./ui/UserMessage";
 import { useSocket } from "../../../hooks/useSocket";
-import { useEffect, useRef } from "react";
+
 import type { Message } from "../../context/SocketContext";
 
 const ChatBody = () => {

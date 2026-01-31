@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   Sparkles, Clock, ArrowLeft, Share2, Bookmark, Check,
-  Link as LinkIcon, Twitter, Linkedin, Send, Heart, MessageCircle as MessageIcon,
-  MoreVertical, Trash2, Edit, User, ThumbsUp, ChevronRight
+  Link as LinkIcon, Twitter, Linkedin,  Heart, MessageCircle as MessageIcon,
+   Trash2, Edit
 } from "lucide-react";
 import { useArticle } from "../../store/useArticleStore";
 import { useAuthStore } from "../../store/authStore";
@@ -284,7 +284,7 @@ const ArticleDetail = () => {
                     <span className="text-sm">Share</span>
                   </button>
                   {showShareOptions && (
-                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 min-w-[180px]">
+                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 min-w-45">
                       <button
                         onClick={() => shareVia("copy")}
                         className="flex items-center gap-3 w-full px-4 py-3 hover:bg-gray-50 text-left text-sm"
@@ -356,7 +356,7 @@ const ArticleDetail = () => {
                   {/* Add Comment */}
                   <div className="mb-8">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-medium flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-medium shrink-0">
                         {user?.name?.charAt(0) || "U"}
                       </div>
                       <div className="flex-1">
@@ -497,7 +497,7 @@ const ArticleDetail = () => {
                   >
                     <div className="p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50/50 transition-colors">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-green-100 text-green-700 flex items-center justify-center font-medium flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-green-100 text-green-700 flex items-center justify-center font-medium shrink-0">
                           {i + 1}
                         </div>
                         <div>

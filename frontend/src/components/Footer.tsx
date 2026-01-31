@@ -29,7 +29,7 @@ const Footer = () => {
                     {/* Company Info */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                            <div className="w-14 h-14 bg-linear-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
                                 <MessageSquare className="w-8 h-8 text-white" />
                             </div>
                             <div>

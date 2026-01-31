@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../../lib/axios";
 import { useAuthStore } from "../../../store/authStore";
-import toast from "react-hot-toast";
+
 import {
   MessageSquarePlus,
   Clock,
@@ -46,12 +46,7 @@ const ChatSidebar = ({ onSelectSession, currentSessionId }: Props) => {
   };
 
 
-  const handleUnregisteredUser = () => {
-    if(!user){
-        toast.error("You have to login to start converstaion")
-        return
-    }
-  }
+
   useEffect(() => {
     fetchSessions();
   }, [user]);
@@ -74,7 +69,7 @@ const ChatSidebar = ({ onSelectSession, currentSessionId }: Props) => {
   };
 
   return (
-    <div className="flex flex-col h-full w-full md:w-80 lg:w-96 bg-gradient-to-b from-emerald-50/30 to-white border-r border-emerald-100 transition-all duration-300">
+    <div className="flex flex-col h-full w-full md:w-80 lg:w-96 bg-linear-to-b from-emerald-50/30 to-white border-r border-emerald-100 transition-all duration-300">
       
       {/* Header */}
       <div className="p-4 md:p-6 border-b border-emerald-100">
@@ -128,7 +123,7 @@ const ChatSidebar = ({ onSelectSession, currentSessionId }: Props) => {
         {/* New Conversation */}
         <button
           onClick={() => onSelectSession(null)}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 group text-sm md:text-base"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-linear-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 group text-sm md:text-base"
         >
           <MessageSquarePlus
             size={18}
@@ -148,7 +143,7 @@ const ChatSidebar = ({ onSelectSession, currentSessionId }: Props) => {
                 onClick={() => onSelectSession(session._id, session.title)}
                 className={`group relative p-3 md:p-4 rounded-xl cursor-pointer transition-all duration-200 ${
                   currentSessionId === session._id
-                    ? "bg-gradient-to-r from-emerald-50/80 to-emerald-100/30 border border-emerald-200 shadow-sm"
+                    ? "bg-linear-to-r from-emerald-50/80 to-emerald-100/30 border border-emerald-200 shadow-sm"
                     : "hover:bg-emerald-50/30 border border-transparent hover:border-emerald-100"
                 }`}
               >
@@ -195,7 +190,7 @@ const ChatSidebar = ({ onSelectSession, currentSessionId }: Props) => {
                 </div>
 
                 {currentSessionId === session._id && (
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-l-full" />
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-emerald-500 to-emerald-600 rounded-l-full" />
                 )}
               </div>
             ))

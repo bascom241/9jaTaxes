@@ -4,6 +4,8 @@ import axios from "axios";
 const deployedBaseURL = "https://9ja-taxes.vercel.app/api"
 const localBaseURL = "http://localhost:5000/api"
 
+
+console.log(localBaseURL)
 const axiosInstance = axios.create({
   baseURL: deployedBaseURL,
   withCredentials: true
