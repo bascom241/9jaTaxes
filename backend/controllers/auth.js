@@ -34,6 +34,8 @@ export const register = async (req, res) => {
 
     await user.save();
 
+    console.log(user)
+
     try {
       await sendEmail(email, verificationToken, name);
     } catch (err) {

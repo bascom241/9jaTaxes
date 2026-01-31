@@ -25,7 +25,7 @@ const useAuthStore = create<AuthStore>((set) => ({
       const response = await axiosInstance.post("/login", formData);
       console.log(response.data.data);
       const userRole = response?.data.data.role;
-
+      localStorage.setItem(authKey, response?.data.data.token);
       if (userRole === "admin") {
         toast.success("Login succesfully");
         window.location.href = "/dashboard";
