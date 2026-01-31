@@ -61,11 +61,11 @@ const Footer = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-3 text-gray-300">
                                 <Mail className="w-5 h-5 text-emerald-400" />
-                                <span>support@taxbot.ng</span>
+                                <span>emmanueldoreen1993@gmail.com</span>
                             </div>
                             <div className="flex items-center gap-3 text-gray-300">
                                 <Phone className="w-5 h-5 text-emerald-400" />
-                                <span>+234 800 TAX BOT</span>
+                                <span>+234 800 9jaTaxes</span>
                             </div>
                             <div className="flex items-center gap-3 text-gray-300">
                                 <MapPin className="w-5 h-5 text-emerald-400" />
@@ -128,11 +128,9 @@ const Footer = () => {
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                             <div className="text-center md:text-left">
                                 <p className="text-gray-400">
-                                    © {currentYear} TaxBot AI Assistant. All rights reserved.
+                                    © {currentYear} 9jaTaxes AI Assistant. All rights reserved.
                                 </p>
-                                <p className="text-sm text-gray-500 mt-1">
-                                    FIRS Registered • NITDA Compliant • ISO 27001 Certified
-                                </p>
+                             
                             </div>
 
                             <div className="flex flex-wrap items-center gap-6 text-sm text-gray-400">
@@ -144,8 +142,8 @@ const Footer = () => {
                                 <span>Version: 3.2.1</span>
                                 <span>•</span>
                                 <span>Uptime: 99.9%</span>
-                                <span>•</span>
-                                <span>Users: 10,247</span>
+                               
+                             
                             </div>
                         </div>
                     </div>
