@@ -1,8 +1,11 @@
 // lib/axios.ts
 import axios from "axios";
 
+const deployedBaseURL = "https://9ja-taxes.vercel.app/api"
+const localBaseURL = "http://localhost:5000/api"
+
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: deployedBaseURL,
   withCredentials: true
 });
 
