@@ -50,6 +50,7 @@ export const useAuthStore = create<AuthInterface>((set) => ({
             toast.success("login successful")
             set({isLogin: false})
         } catch (error) {
+                    set({isLogin: false})
             toast.error("Failed to login")
             console.log(error)
         }
