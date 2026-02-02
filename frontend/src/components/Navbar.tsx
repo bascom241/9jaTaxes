@@ -34,6 +34,16 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-xl font-bold text-green-800">9jaTaxes</div>
 
+
+        <button
+          onClick={() => {
+            setWaitlistOpen(true);
+            setMobileMenuOpen(false);
+          }}
+          className="px-6 py-2 flex md:hidden border border-green-800 text-green-800 rounded-full font-semibold"
+        >
+          Join Waitlist
+        </button>
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6">
           {menuLinks.map((link) => (
