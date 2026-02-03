@@ -1,6 +1,6 @@
 import { Socket, io } from "socket.io-client";
 
-const deployedBaseURL = "https://ninejataxes.onrender.com";
+const deployedBaseURL = "https://9jataxes.pxxl.click";
 const localBaseURL = "http://localhost:5000";
 console.log("Socket URLS - Local:", localBaseURL, "Deployed:", deployedBaseURL);
 

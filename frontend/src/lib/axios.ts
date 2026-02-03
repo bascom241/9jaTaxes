@@ -3,7 +3,7 @@ import axios from "axios";
 
 const deployedBaseURL = "https://9ja-taxes.vercel.app/api"
 const localBaseURL = "http://localhost:5000/api"
-const renderBaseUrl = "https://ninejataxes.onrender.com/api"
+const renderBaseUrl = "https://9jataxes.pxxl.click/api"
 
 console.log(localBaseURL)
 console.log(deployedBaseURL)
