@@ -8,7 +8,7 @@ const renderBaseUrl = "https://9jataxes.pxxl.click/api"
 console.log(localBaseURL)
 console.log(deployedBaseURL)
 const axiosInstance = axios.create({
-  baseURL: renderBaseUrl,
+  baseURL: localBaseURL,
   withCredentials: true
 });
 

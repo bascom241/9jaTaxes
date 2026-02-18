@@ -5,6 +5,7 @@ import { useSocket } from "../../../hooks/useSocket";
 import Header from "./ui/header";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import SubscriptionStatus from "../SubscriptionStatus";
 
 const Chat = () => {
   const { loadSession, chatSessionId } = useSocket();
@@ -59,6 +60,9 @@ const Chat = () => {
         </button>
 
         <Header />
+        
+        {/* Subscription Status */}
+        <SubscriptionStatus />
 
         {/* ChatBody */}
         <div className="flex-1 min-h-0 overflow-y-auto">

@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useAuthStore } from "../../store/authStore";
 import { Menu, X } from "lucide-react";
 import WaitlistModal from "./WaitlistModal";
-
+import { Crown } from 'lucide-react';
+import PaymentModal from "./PaymentModal";
 const Navbar = () => {
   const { user, getUser } = useAuthStore();
   const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -16,6 +18,9 @@ const Navbar = () => {
     };
     fetchUser();
   }, [getUser]);
+
+
+
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
@@ -33,6 +38,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
         <div className="text-xl font-bold text-green-800">9jaTaxes</div>
+
+
+
+
 
 
         <button
@@ -56,6 +65,15 @@ const Navbar = () => {
             </a>
           ))}
 
+          <button
+          onClick={() => {
+              setPaymentModalOpen(true)
+              setMobileMenuOpen(false )
+            }}
+            className="px-6 py-2 sm:flex hidden border border-green-800 text-green-800 rounded-full gap-2 font-semibold">
+            <Crown />
+            subscribe
+          </button>
           <button
             onClick={() => setWaitlistOpen(true)}
             className="px-5 py-2 border border-green-800 text-green-800 rounded-full font-semibold hover:bg-green-50"
@@ -103,6 +121,16 @@ const Navbar = () => {
               </a>
             ))}
 
+
+            <button 
+            onClick={() => {
+              setPaymentModalOpen(true)
+              setMobileMenuOpen(false )
+            }}
+            className="px-6 py-2 flex items-center justify-center border border-green-800 text-green-800 rounded-full gap-2 font-semibold">
+              <Crown />
+              subscribe
+            </button>
             <button
               onClick={() => {
                 setWaitlistOpen(true);
@@ -126,6 +154,13 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+
+
+      <PaymentModal
+        open={paymentModalOpen}
+        onClose={() => setPaymentModalOpen(false)}
+      />
 
       <WaitlistModal
         open={waitlistOpen}
