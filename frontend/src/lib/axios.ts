@@ -5,6 +5,7 @@ const deployedBaseURL = "https://9ja-taxes.vercel.app/api"
 const localBaseURL = "http://localhost:5000/api"
 const renderBaseUrl = "https://9jataxes.pxxl.click/api"
 
+console.log(renderBaseUrl)
 console.log(localBaseURL)
 console.log(deployedBaseURL)
 const axiosInstance = axios.create({
