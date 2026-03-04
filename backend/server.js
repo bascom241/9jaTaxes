@@ -30,6 +30,7 @@ app.use(
       "http://localhost:5000",
       "https://9ja-taxes-9c4e.vercel.app",
       "https://www.9jataxes.com",
+      "https://9jataxesadmin.pxxl.click"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
