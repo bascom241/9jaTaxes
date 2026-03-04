@@ -13,7 +13,7 @@ interface DoughnutChartProps {
   title: string;
 }
 
-const DoughnutChart: React.FC<DoughnutChartProps> = ({ data, title }) => {
+const DoughnutChart: React.FC<DoughnutChartProps> = ({ data}) => {
   const colors = [
     '#000000',
     '#333333',
@@ -59,7 +59,7 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({ data, title }) => {
   };
 
   return (
-    <div className="w-full h-[300px]">
+    <div className="w-full h-75">
       <Doughnut data={chartData} options={options} />
     </div>
   );
