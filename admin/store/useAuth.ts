@@ -6,11 +6,7 @@ interface LoginData {
   password: string;
 }
 
-interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
+
 
 interface AuthStore {
   gettingUser: boolean;
@@ -18,7 +14,7 @@ interface AuthStore {
 }
 
 const authKey = "authToken";
-const useAuthStore = create<AuthStore>((set) => ({
+const useAuthStore = create<AuthStore>(() => ({
   gettingUser: false,
   login: async (formData) => {
     try {
@@ -38,6 +34,14 @@ const useAuthStore = create<AuthStore>((set) => ({
       toast.error("Failed to login");
     }
   },
+
+  getUsers:async() => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
   
 }));
 

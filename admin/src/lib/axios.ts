@@ -1,9 +1,10 @@
 import axios from "axios"
 
-
-
+const localBaseURL ="http://localhost:5000/api" 
+console.log(localBaseURL)
+const renderBaseUrl = "https://9jataxes.pxxl.click/api"
  const axiosInstance = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: renderBaseUrl,
     withCredentials: true
 });
 

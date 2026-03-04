@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useAuthStore } from "../store/authStore";
 import Footer from "./components/Footer";
 import { jwtDecode, type JwtPayload } from "jwt-decode";
-
+import LandingPage from "./pages/LandingPage";
 
 
 
@@ -53,7 +53,8 @@ useEffect(() => {
       {!shouldHideBar && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<><LandingPage/></>}/>
+        <Route path="/chat" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/learn" element={<Article />} />

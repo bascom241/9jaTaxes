@@ -24,15 +24,15 @@ const articleSchema = new mongoose.Schema({
         required: [true, "Arcticle Category is required"]
     },
     articleSummary: {
-        main: {
-            type: String,
-            required: true
-        },
-        length: {
-            type: Number,
-            required: true
-        }
+    main: {
+        type: String,
+        default: ""
     },
+    length: {
+        type: Number,
+        default: 0
+    }
+},
     comments: [
         {
             userId:{
