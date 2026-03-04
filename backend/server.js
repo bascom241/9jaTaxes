@@ -32,6 +32,7 @@ app.use(
       "https://www.9jataxes.com",
       "https://9jataxesadmin.pxxl.click"
     ],
+
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -44,13 +45,14 @@ app.use("/api/category", categoryRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/payments", paymentRouter);
 app.use("/api/admin", dashboardRouter)
+app.use("/api/settings", settingRouter)
 // --- Webhook route (raw body required for Paystack) ---
 app.post(
   "/api/payments/webhook",
   bodyParser.raw({ type: "application/json" }),
   verifyPayment
 );
-app.use("/api/settings", settingRouter)
+
 
 // --- HTTP server + sockets ---
 const server = http.createServer(app);
