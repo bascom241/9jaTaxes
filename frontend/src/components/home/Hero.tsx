@@ -1,43 +1,57 @@
+import { Sparkles } from "lucide-react";
 
-
-import { Sparkles } from 'lucide-react';
 const Hero = () => {
-    return (
-        <main className="py-12 flex w-full h-screen flex-col items-center gap-4">
-            <section>
-                <button className="bg-[#08464a] border-green-400 border rounded-full gap-4 px-4 py-2 flex items-between">
-                    <Sparkles color='green' />
-                    <p className="text-green-400">Launching soon</p>
-                </button>
-            </section>
+  return (
+    <main className="min-h-screen w-full flex flex-col items-center justify-center px-6 text-center gap-6">
 
-            <section className='mt-3'>
-                <h1 className='text-white text-6xl'>Grow Your Bussiness with <span className='text-green-400'>Policy</span></h1>
-                <h1 className='text-green-400 text-6xl text-center mt-4'>Insights <span className='text-white'>and</span> Oppotunities</h1>
-            </section>
+      {/* Launch badge */}
+      <section>
+        <button className="bg-[#08464a] border border-green-400 rounded-full flex items-center gap-2 px-4 py-2">
+          <Sparkles className="text-green-400" size={18} />
+          <p className="text-green-400 text-sm md:text-base">Launching soon</p>
+        </button>
+      </section>
 
-            <section className='mt-6'>
-                    <p className='text-white text-2xl'>Discover grants, hackathons, and policy information that support your expansion,</p>
-                    <p className='text-white text-2xl text-center' >relocation, and business growth</p>
-            </section>
+      {/* Headline */}
+      <section className="max-w-5xl">
+        <h1 className="text-white font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          Grow Your Small business into a
+        </h1>
 
-            <section className='mt-4 flex gap-4 '>
-                <button className=" bg-green-400 border-green-400 border rounded-full gap-4 px-6 py-3 flex items-between">
-                    <Sparkles color='white' />
-                    <p className="text-white">Join the Waitlist</p>
-                </button>
+        <h1 className="text-green-400 font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">
+          compliant <span className="text-white">,</span> profitable{" "}
+          <span className="text-white">and</span> scalable
+        </h1>
 
-                <button className=" border-[#060d13] bg-[#1a2a3b5f]  border rounded-full gap-4 px-14 py-3 flex items-between ">
-               
-                    <p className=" text-white ">Get Started</p>
-                </button>
+        <h1 className="text-white font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">
+          venture
+        </h1>
+      </section>
 
-            
-            </section>
+      {/* Description */}
+      <section className="max-w-3xl">
+        <p className="text-gray-300 text-base sm:text-lg md:text-xl">
+          Get access to everything you need to grow your small business —
+          funding opportunities, policy clarity, community support and
+          AI-powered tax guidance.
+        </p>
+      </section>
 
-                <p className='text-white mt-3'>🇳🇬 Built specifically for Nigerian youth aged 17-35</p>
-        </main>
-    )
-}
+      {/* CTA */}
+      <section>
+        <button className="bg-green-400 hover:bg-green-500 transition border border-green-400 rounded-full flex items-center gap-2 px-6 py-3">
+          <Sparkles className="text-white" size={18} />
+          <p className="text-white font-medium">Join the Waitlist</p>
+        </button>
+      </section>
 
-export default Hero
+      {/* Footer text */}
+      <p className="text-gray-400 text-sm sm:text-base">
+        🇳🇬 Built specifically for Nigerian youth aged 17-35
+      </p>
+
+    </main>
+  );
+};
+
+export default Hero;

@@ -30,14 +30,11 @@ const Footer = () => {
                                 <MessageSquare className="w-8 h-8 text-white" />
                             </div>
                             <div>
-                                <h2 className="text-3xl font-bold">TaxBot AI</h2>
-                                <p className="text-emerald-300 text-lg">Intelligent Tax Assistant</p>
+                                <h2 className="text-3xl font-bold">9ja Taxes</h2>
+                              
                             </div>
                         </div>
-                        <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
-                            Revolutionizing tax compliance and financial understanding in Nigeria through 
-                            artificial intelligence. We provide accurate, up-to-date tax guidance 24/7.
-                        </p>
+                     
                     </div>
 
                     {/* Quick Links */}
@@ -61,15 +58,15 @@ const Footer = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-3 text-gray-300">
                                 <Mail className="w-5 h-5 text-emerald-400" />
-                                <span>emmanueldoreen1993@gmail.com</span>
+                                <span>support@9jataxes.com</span>
                             </div>
                             <div className="flex items-center gap-3 text-gray-300">
                                 <Phone className="w-5 h-5 text-emerald-400" />
-                                <span>+234 800 9jaTaxes</span>
+                                <span>08131620405</span>
                             </div>
                             <div className="flex items-center gap-3 text-gray-300">
                                 <MapPin className="w-5 h-5 text-emerald-400" />
-                                <span>Lagos, Nigeria</span>
+                                <span>Abuja, Nigeria</span>
                             </div>
                         </div>
                     </div>

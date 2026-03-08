@@ -27,9 +27,10 @@ const Navbar = () => {
   };
 
   const menuLinks = [
-    { name: "Home", href: "/" },
-    { name: "Learn", href: "/learn" },
+   
+    { name: "Home", href: "/learn" },
     { name: "News", href: "/news" },
+    {name: "chat", href: "/chat"}
 
   ];
 
@@ -66,14 +67,11 @@ const Navbar = () => {
           ))}
 
           <button
-          onClick={() => {
-              setPaymentModalOpen(true)
-              setMobileMenuOpen(false )
-            }}
-            className="px-6 py-2 sm:flex hidden border border-green-800 text-green-800 rounded-full gap-2 font-semibold">
-            <Crown />
-            subscribe
-          </button>
+  onClick={() => setPaymentModalOpen(true)}
+  className="px-6 py-2 border border-green-800 text-green-800 rounded-full font-semibold"
+>
+  Get Early Access
+</button>
           <button
             onClick={() => setWaitlistOpen(true)}
             className="px-5 py-2 border border-green-800 text-green-800 rounded-full font-semibold hover:bg-green-50"
