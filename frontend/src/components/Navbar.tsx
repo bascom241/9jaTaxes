@@ -30,7 +30,8 @@ const Navbar = () => {
    
     { name: "Home", href: "/learn" },
     { name: "News", href: "/news" },
-    {name: "chat", href: "/chat"}
+    {name: "chat", href: "/chat"},
+    {name:"community", href: "/community"}
 
   ];
 
@@ -66,12 +67,12 @@ const Navbar = () => {
             </a>
           ))}
 
-          <button
+          {/* <button
   onClick={() => setPaymentModalOpen(true)}
   className="px-6 py-2 border border-green-800 text-green-800 rounded-full font-semibold"
 >
   Get Early Access
-</button>
+</button> */}
           <button
             onClick={() => setWaitlistOpen(true)}
             className="px-5 py-2 border border-green-800 text-green-800 rounded-full font-semibold hover:bg-green-50"

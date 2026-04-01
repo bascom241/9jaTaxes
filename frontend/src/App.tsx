@@ -12,8 +12,8 @@ import { useAuthStore } from "../store/authStore";
 import Footer from "./components/Footer";
 import { jwtDecode, type JwtPayload } from "jwt-decode";
 import LandingPage from "./pages/LandingPage";
-
-
+import Community from "./pages/Community";
+import News from "./pages/News";
 
 
 function App() {
@@ -59,9 +59,10 @@ useEffect(() => {
         <Route path="/register" element={<Register />} />
         <Route path="/learn" element={<Article />} />
         <Route path="/article/:articleId" element={<ArticleDetail />} />
-
+        <Route path="/news" element={<News/>}/>
         {/* Payment verification route */}
         <Route path="/payment/verify" element={<PaymentVerify />} />
+        <Route path="/community" element={<Community/>}/>
       </Routes>
 
       {!shouldHideBar && <Footer />}

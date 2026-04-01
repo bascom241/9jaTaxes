@@ -1,7 +1,7 @@
 // App.tsx
 import React from 'react'
 import { Routes, Route } from "react-router-dom"
-
+import News from './dashboard/News'
 import DashboardLayout from "./components/DashboardLayout"
 import DashboardOverview from "./dashboard/DashboardOverview"
 import Upload from "./dashboard/Upload"
@@ -50,6 +50,7 @@ const App: React.FC = () => {
           <Route path="categories" element={<Categories />} />
           <Route path='users' element={<Users/>}/>
           <Route path='settings' element={<Settings/>}/>
+          <Route path='news' element={<News/>}/>
         </Route>
       </Routes>
     </>

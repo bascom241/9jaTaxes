@@ -19,7 +19,7 @@ const Hero = () => {
         </h1>
 
         <h1 className="text-green-400 font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">
-          compliant <span className="text-white">,</span> profitable{" "}
+          compliant<span className="text-white">,</span> profitable{" "}
           <span className="text-white">and</span> scalable
         </h1>
 
@@ -45,10 +45,7 @@ const Hero = () => {
         </button>
       </section>
 
-      {/* Footer text */}
-      <p className="text-gray-400 text-sm sm:text-base">
-        🇳🇬 Built specifically for Nigerian youth aged 17-35
-      </p>
+  
 
     </main>
   );

@@ -13,7 +13,7 @@ const Why = () => {
       icon: <Radar />,
       title: "Expansion & Relocation Insights",
       content:
-        "Discover relevant grants, hackathons, competitions, and funding opportunities curated specifically for Nigerian entrepreneurs and creatives."
+        "Get guidance on expanding your business to new markets or relocating operations with policy insights and regulatory requirements."
     },
     {
       icon: <BookOpen />,

@@ -13,6 +13,7 @@ import bodyParser from "body-parser";
 import { verifyPayment } from "./controllers/payment.js"; // webhook handler
 import dashboardRouter from "./routes/dashboardRouter.js"
 import settingRouter from "./routes/settingsRouter.js"
+import newRouter from "./routes/newRouter.js"
 dotenv.config();
 
 const app = express();
@@ -46,12 +47,14 @@ app.use("/api/chat", chatRouter);
 app.use("/api/payments", paymentRouter);
 app.use("/api/admin", dashboardRouter)
 app.use("/api/settings", settingRouter)
+app.use("/api/news", newRouter)
 // --- Webhook route (raw body required for Paystack) ---
 app.post(
   "/api/payments/webhook",
   bodyParser.raw({ type: "application/json" }),
   verifyPayment
 );
+
 
 
 // --- HTTP server + sockets ---

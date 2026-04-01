@@ -30,7 +30,7 @@ const Footer = () => {
                                 <MessageSquare className="w-8 h-8 text-white" />
                             </div>
                             <div>
-                                <h2 className="text-3xl font-bold">9ja Taxes</h2>
+                                <h2 className="text-3xl font-bold">9jaTaxes</h2>
                               
                             </div>
                         </div>

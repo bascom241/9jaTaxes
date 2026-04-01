@@ -31,9 +31,11 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, setIsOpen }) => {
     { id: 1, name: 'Dashboard', icon: <Home className="w-5 h-5" />, path: '/dashboard' },
     { id: 2, name: 'Articles', icon: <FileText className="w-5 h-5" />, path: '/dashboard/articles' },
     { id: 3, name: 'Upload', icon: <Upload className="w-5 h-5" />, path: '/dashboard/upload' },
+
     { id: 4, name: 'Categories', icon: <Grid className="w-5 h-5" />, path: '/dashboard/categories' },
     { id: 5, name: 'Users', icon: <Users className="w-5 h-5" />, path: '/dashboard/users' },
     { id: 6, name: 'Settings', icon: <Settings className="w-5 h-5" />, path: '/dashboard/settings' },
+    {id: 6, name:"News", icon: <Upload className='w-5 h-5'/>, path:"/news"}
   ]
 
   // Base classes for both mobile and desktop
